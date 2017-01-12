@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary" class="toolbar">
+  <span style="margin-right: 16px;">
+      <button md-mini-fab (click)="sidenav.toggle()">
+          <md-icon>menu</md-icon>
+      </button>
+  </span>
+  <span>Sights</span>
+</md-toolbar>
+<md-sidenav-container class="container">
+  <md-sidenav #sidenav mode="side">
+    <h1>Navigation</h1>
+  </md-sidenav>
+  <div>
+    <h1>Content</h1>
+  </div>
+</md-sidenav-container>
