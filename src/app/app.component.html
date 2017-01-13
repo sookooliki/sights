@@ -8,9 +8,10 @@
 </md-toolbar>
 <md-sidenav-container class="container">
   <md-sidenav #sidenav mode="side">
-    <h1>Navigation</h1>
+    {{placeTypes | json}}
   </md-sidenav>
   <div>
     <h1>Content</h1>
+    {{placeTypes | json}}
   </div>
 </md-sidenav-container>

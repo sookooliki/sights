@@ -1,3 +1,4 @@
+import { PlaceService } from './services/place.service';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [PlaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
