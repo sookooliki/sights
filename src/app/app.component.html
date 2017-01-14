@@ -1,4 +1,4 @@
-<md-toolbar color="primary" class="toolbar">
+<md-toolbar color="primary" class="my-toolbar">
   <span style="margin-right: 16px;">
       <button md-mini-fab (click)="sidenav.toggle()">
           <md-icon>menu</md-icon>
@@ -6,12 +6,13 @@
   </span>
   <span>Sights</span>
 </md-toolbar>
-<md-sidenav-container class="container">
+<md-sidenav-container class="my-container">
   <md-sidenav #sidenav mode="side">
-    {{placeTypes | json}}
+    <div class="p-2">
+      <app-place-type-item *ngFor="let placeType of placeTypes" [placeType]="placeType"></app-place-type-item>
+    </div>
   </md-sidenav>
   <div>
     <h1>Content</h1>
-    {{placeTypes | json}}
   </div>
 </md-sidenav-container>

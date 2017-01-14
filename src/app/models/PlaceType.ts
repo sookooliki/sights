@@ -3,4 +3,6 @@ export class PlaceType {
     title: string;
     parentTypeUrl: string;
     subTypes: PlaceType[];
+    isSelected: boolean;
+    isExpanded: boolean;
 }
