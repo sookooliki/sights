@@ -9,19 +9,38 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PlaceTypeItemComponent implements OnInit {
 
+  private _isExpanded: boolean;
+
   @Input()
   placeType: PlaceType;
 
   constructor() { }
 
+  get isSelected(): boolean {
+    return this.placeType.isSelected;
+  }
+
+  get isExpanded(): boolean {
+    return this._isExpanded;
+  }
+
+  get hasChildren(): boolean {
+    return this.placeType.subTypes != null && this.placeType.subTypes.length > 0;
+  }
+
   ngOnInit(): void {
   }
 
   changeExpanded(): void {
-    this.placeType.isExpanded = !this.placeType.isExpanded;
+    this._isExpanded = !this._isExpanded;
   }
 
-  hasChildren(): boolean {
-    return this.placeType.subTypes != null && this.placeType.subTypes.length > 0;
+  select(placeType: PlaceType, selection: boolean): void {
+    placeType.isSelected = selection;
+    if (placeType.subTypes != null) {
+      for (let item of placeType.subTypes) {
+        this.select(item, selection);
+      }
+    }
   }
 }

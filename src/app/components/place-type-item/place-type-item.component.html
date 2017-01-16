@@ -1,20 +1,29 @@
 <div class="d-flex flex-column">
   <div class="d-flex flex-row justify-content-start pt-1">
     <div>
-      <button type="button" class="btn btn-secondary btn-sm">
-        <span class="mdi" [ngClass]="{'mdi-checkbox-blank-outline':!hasChildren(), 'mdi-checkbox-multiple-blank-outline':hasChildren()}"></span>
+      <button type="button" class="btn btn-secondary btn-sm" (click)="select(placeType, !isSelected)">
+        <span class="mdi" [ngClass]="{
+          'mdi-checkbox-blank-outline' : !hasChildren && !isSelected,
+          'mdi-checkbox-marked-outline' : !hasChildren && isSelected,
+          'mdi-checkbox-multiple-blank-outline' : hasChildren && !isSelected,
+          'mdi-checkbox-multiple-blank' : hasChildren && !isSelected && isChildrenSelected,
+          'mdi-checkbox-multiple-marked-outline' : hasChildren && isSelected
+          }"></span>
       </button>
     </div>
     <div class="mx-2">
       {{placeType.title | uppercase}}
     </div>
-    <div class="ml-auto" *ngIf="hasChildren()">
+    <div class="ml-auto" *ngIf="hasChildren">
       <button type="button" class="btn btn-secondary btn-sm" (click)="changeExpanded()">
-        <span class="mdi" [ngClass]="{'mdi-chevron-up':placeType.isExpanded, 'mdi-chevron-down':!placeType.isExpanded}"></span>
+        <span class="mdi" [ngClass]="{
+          'mdi-chevron-up' : isExpanded, 
+          'mdi-chevron-down' : !isExpanded
+          }"></span>
       </button>
     </div>
   </div>
-  <div class="pl-3" *ngIf="placeType.isExpanded">
+  <div class="pl-3" *ngIf="isExpanded">
     <app-place-type-item *ngFor="let childPlaceType of placeType.subTypes" [placeType]="childPlaceType"></app-place-type-item>
   </div>
 </div>

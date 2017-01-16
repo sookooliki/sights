@@ -1,3 +1,4 @@
+import { platform } from 'os';
 import { debug } from 'util';
 import { PlaceType } from '../models/PlaceType';
 import { Injectable } from '@angular/core';

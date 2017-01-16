@@ -5,13 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
-import { PlaceTypeTreeComponent } from './components/place-type-tree/place-type-tree.component';
 import { PlaceTypeItemComponent } from './components/place-type-item/place-type-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlaceTypeTreeComponent,
     PlaceTypeItemComponent
   ],
   imports: [
