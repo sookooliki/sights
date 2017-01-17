@@ -5,8 +5,8 @@
         <span class="mdi" [ngClass]="{
           'mdi-checkbox-blank-outline' : !hasChildren && !isSelected,
           'mdi-checkbox-marked-outline' : !hasChildren && isSelected,
-          'mdi-checkbox-multiple-blank-outline' : hasChildren && !isSelected,
-          'mdi-checkbox-multiple-blank' : hasChildren && !isSelected && isChildrenSelected,
+          'mdi-checkbox-multiple-blank-outline' : hasChildren && !isSelected && !hasAnySelectedChild,
+          'mdi-checkbox-multiple-blank' : hasChildren && !isSelected && hasAnySelectedChild,
           'mdi-checkbox-multiple-marked-outline' : hasChildren && isSelected
           }"></span>
       </button>
@@ -24,6 +24,6 @@
     </div>
   </div>
   <div class="pl-3" *ngIf="isExpanded">
-    <app-place-type-item *ngFor="let childPlaceType of placeType.subTypes" [placeType]="childPlaceType"></app-place-type-item>
+    <app-place-type-item *ngFor="let childPlaceType of placeType.subTypes" [placeType]="childPlaceType" (selectionChanged)="onSelectionChanged($event)"></app-place-type-item>
   </div>
 </div>
