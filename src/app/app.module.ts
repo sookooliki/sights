@@ -1,5 +1,6 @@
 import { AppComponent } from './app.component';
 import { PlaceTypeItemComponent } from './components/place-type-item/place-type-item.component';
+import { GeolocationService } from './services/geolocation.service';
 import { PlaceTypeFactoryService } from './services/place-type-factory.service';
 import { PlaceService } from './services/place.service';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,11 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [PlaceService, PlaceTypeFactoryService],
+  providers: [
+    PlaceService,
+    PlaceTypeFactoryService,
+    GeolocationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,7 @@
 <md-sidenav-container class="my-container">
   <md-sidenav #sidenav mode="side">
     <div class="p-2">
-      <app-place-type-item *ngFor="let placeType of placeTypes" [placeType]="placeType"></app-place-type-item>
+      <app-place-type-item *ngFor="let placeType of placeTypes" [placeType]="placeType" (selectionChanged)="onSelectionChanged()"></app-place-type-item>
     </div>
   </md-sidenav>
   <div>

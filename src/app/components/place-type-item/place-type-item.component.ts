@@ -13,6 +13,9 @@ export class PlaceTypeItemComponent implements OnInit {
   @Input()
   placeType: PlaceType;
 
+  @Output()
+  selectionChanged = new EventEmitter();
+
   constructor() { }
 
   get isSelected(): boolean {
@@ -36,9 +39,14 @@ export class PlaceTypeItemComponent implements OnInit {
 
   select(): void {
     this.placeType.select(!this.placeType.isSelected);
+    this.selectionChanged.emit();
   }
 
   changeExpanded(): void {
     this._isExpanded = !this._isExpanded;
+  }
+
+  onSelectionChanged(): void {
+    this.selectionChanged.emit();
   }
 }

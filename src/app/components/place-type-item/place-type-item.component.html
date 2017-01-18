@@ -24,6 +24,6 @@
     </div>
   </div>
   <div class="pl-3" *ngIf="isExpanded">
-    <app-place-type-item *ngFor="let childPlaceType of placeType.subTypes" [placeType]="childPlaceType"></app-place-type-item>
+    <app-place-type-item *ngFor="let childPlaceType of placeType.subTypes" [placeType]="childPlaceType" (selectionChanged)="onSelectionChanged()"></app-place-type-item>
   </div>
 </div>
