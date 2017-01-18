@@ -1,7 +1,7 @@
 <div class="d-flex flex-column">
   <div class="d-flex flex-row justify-content-start pt-1">
     <div>
-      <button type="button" class="btn btn-secondary btn-sm" (click)="select(placeType, !isSelected)">
+      <button type="button" class="btn btn-secondary btn-sm" (click)="select()">
         <span class="mdi" [ngClass]="{
           'mdi-checkbox-blank-outline' : !hasChildren && !isSelected,
           'mdi-checkbox-marked-outline' : !hasChildren && isSelected,
@@ -24,6 +24,6 @@
     </div>
   </div>
   <div class="pl-3" *ngIf="isExpanded">
-    <app-place-type-item *ngFor="let childPlaceType of placeType.subTypes" [placeType]="childPlaceType" (selectionChanged)="onSelectionChanged($event)"></app-place-type-item>
+    <app-place-type-item *ngFor="let childPlaceType of placeType.subTypes" [placeType]="childPlaceType"></app-place-type-item>
   </div>
 </div>
